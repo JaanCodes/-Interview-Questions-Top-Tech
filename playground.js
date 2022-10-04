@@ -47,4 +47,19 @@ const maxSubArray = (nums) => {
   return maxSum;
 };
 
-console.log(maxSubArray([5, 4, -1, 7, 8]));
+const stocks = (prices) => {
+  let buy = prices[0];
+  let sell = prices[1];
+  for (let i = 0; i < prices.length - 2; i++) {
+    for (let j = i + 1; j < prices.length - 1; j++) {
+      if (prices[i] < buy) {
+        buy = prices[i];
+      }
+      if (prices[j] > sell) {
+        sell = prices[j];
+      }
+    }
+  }
+  return [buy, sell];
+};
+console.log(stocks([8, 3, 6, 1, 6, 4, 7]));
