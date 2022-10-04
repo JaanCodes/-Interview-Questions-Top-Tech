@@ -29,4 +29,22 @@ const containsDuplicate = (nums) => {
   // return true;
 };
 
-console.log(containsDuplicate([1, 2, 3, 4, 2]));
+const maxSubArray = (nums) => {
+  let maxSum = nums[0];
+  let sum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    console.log(maxSum);
+    console.log(sum);
+    if (sum < 0) {
+      sum = 0;
+    }
+    sum += nums[i];
+    if (maxSum < sum) {
+      maxSum = sum;
+    }
+  }
+  return maxSum;
+};
+
+console.log(maxSubArray([5, 4, -1, 7, 8]));
