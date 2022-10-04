@@ -12,19 +12,19 @@
 
 const stocks = (prices) => {
   // MY TRY:
-  // let buy = prices[0];
-  // let sell = prices[1];
-  // for (let i = 0; i < prices.length - 2; i++) {
-  //   if (prices[i] < buy) {
-  //     buy = prices[i];
-  //   }
-  //   for (let j = i + 1; j < prices.length - 1; j++) {
-  //     if (prices[j] > sell) {
-  //       sell = prices[j];
-  //     }
-  //   }
-  // }
-  // return sell - buy;
+  let buy = prices[0];
+  let sell = prices[1];
+  for (let i = 0; i < prices.length - 2; i++) {
+    if (prices[i] < buy) {
+      buy = prices[i];
+    }
+    for (let j = i + 1; j < prices.length - 1; j++) {
+      if (prices[j] > sell) {
+        sell = prices[j];
+      }
+    }
+  }
+  return sell - buy;
   //
   // OTHER SOLUTIONS:
   let buy2 = 0;
