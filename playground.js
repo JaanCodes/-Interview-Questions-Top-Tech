@@ -62,4 +62,49 @@ const stocks = (prices) => {
   }
   return [buy, sell];
 };
-console.log(stocks([8, 3, 6, 1, 6, 4, 7]));
+
+// function threeSum(nums) {
+//   let result = [];
+//   for (let a = 0; a < nums.length; a++) {
+//     for (let b = a + 1; b < nums.length; b++) {
+//       for (let c = nums.length + 1; c > 0; c--) {
+//         if (nums[a] + nums[b] + nums[c] === 0) {
+//           result.push([nums[a], nums[b], nums[c]]);
+//         }
+//       }
+//     }
+//   }
+//   return result;
+// }
+function threeSum(nums) {
+  let results = [];
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let l = i + 1;
+    let r = nums.length - 1;
+
+    while (l < r) {
+      const sum = nums[i] + nums[l] + nums[r];
+
+      if (sum > 0) {
+        r--;
+      }
+      if (sum < 0) {
+        l++;
+      }
+      if (sum === 0) {
+        results.push([nums[i], nums[l], nums[r]]);
+        l++;
+        if (nums[l] === nums[l - 1]) {
+          l++;
+        }
+      }
+    }
+  }
+  return results;
+}
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
