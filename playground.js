@@ -186,4 +186,16 @@ const search = (nums, target) => {
   }
 };
 
-console.log(search([3, 4, 2, 0], 4));
+const flatten = (nums) => {
+  const result = [];
+  for (elem of nums) {
+    if (Array.isArray(elem)) {
+      flatten(elem);
+    } else {
+      result.push(elem);
+    }
+  }
+  return result;
+};
+
+console.log(flatten([1, 2, 3, [4, 5]]));
