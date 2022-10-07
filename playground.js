@@ -212,4 +212,18 @@ const moveZeroes = (nums) => {
   return result.concat(zeroes);
 };
 
-console.log(flatten([1, 2, 3, [4, 5]]));
+const sumOfTwo = (nums1, nums2, target) => {
+  const set = new Set();
+
+  for (elem of nums1) {
+    set.add(target - elem);
+  }
+  for (elem of nums2) {
+    if (set.has(elem)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(sumOfTwo([1, 2, 3], [5, 2], 8));
