@@ -198,4 +198,18 @@ const flatten = (nums) => {
   return result;
 };
 
+const moveZeroes = (nums) => {
+  const result = [];
+  const zeroes = [];
+
+  for (elem of nums) {
+    if (elem === 0) {
+      zeroes.push(elem);
+    } else {
+      result.push(elem);
+    }
+  }
+  return result.concat(zeroes);
+};
+
 console.log(flatten([1, 2, 3, [4, 5]]));
