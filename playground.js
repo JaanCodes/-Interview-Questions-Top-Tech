@@ -140,4 +140,20 @@ const productExceptSelf = (nums) => {
   return result;
 };
 
-console.log(productExceptSelf([1, 2, 3, 4]));
+const meetingTimes = (times) => {
+  times.sort((a, b) => a - b);
+  for (let i = 1; i < times.length; i++) {
+    if (times[i][1] > times[i - 1][0]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(
+  meetingTimes([
+    [7, 19],
+    [10, 20],
+    [25, 30],
+  ])
+);
